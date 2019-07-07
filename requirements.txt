@@ -1,0 +1,7 @@
+Flask
+flask-mongoengine
+Flask-WTF
+mongoengine
+WTForms
+flasgger
+google

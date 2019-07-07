@@ -1,0 +1,10 @@
+api:
+  build: .
+  ports:
+    - "5000:5000"
+  volumes:
+    - .:/google-search
+  links:
+    - db
+db:
+  image: mongo:latest
