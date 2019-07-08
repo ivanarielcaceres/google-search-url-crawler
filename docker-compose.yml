@@ -1,10 +1,21 @@
-api:
-  build: .
-  ports:
-    - "5000:5000"
-  volumes:
-    - .:/google-search
-  links:
-    - db
-db:
-  image: mongo:latest
+version: "3"
+services:
+  api:
+    build: .
+    ports:
+      - "5000:5000"
+    links:
+      - "mongo:database"
+    restart: unless-stopped
+  mongo:
+    image: mongo:latest
+    ports: 
+      - "27017:27017"
+    volumes:
+      - db-volume:/data/db
+    restart: unless-stopped
+volumes:
+  db-volume:
+networks:
+  default:
+    driver: bridge
