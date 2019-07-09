@@ -4,8 +4,10 @@ services:
     build: .
     ports:
       - "5000:5000"
-    links:
-      - "mongo:database"
+    depends_on:
+      - "mongo"
+    networks:
+      - atacado-net
     restart: unless-stopped
   mongo:
     image: mongo:latest
@@ -13,9 +15,10 @@ services:
       - "27017:27017"
     volumes:
       - db-volume:/data/db
+    networks:
+      - atacado-net
     restart: unless-stopped
 volumes:
   db-volume:
 networks:
-  default:
-    driver: bridge
+  atacado-net:

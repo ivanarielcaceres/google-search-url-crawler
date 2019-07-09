@@ -1,7 +1,7 @@
 class Config(object):
     DEBUG = False
     SECRET_KEY = 'sdafdkjhsfmcvbbasjjsafghghgsd\sa'
-    MONGODB_SETTINGS = {'db': 'google_search_url'}
+    MONGODB_SETTINGS = {'db': 'google_search_url', 'host': 'mongo', 'port': 27017,}
 
 class ProductionConfig(Config):
     DEBUG = False
